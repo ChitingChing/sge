@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets Principal
+        <p:button value="Regresar" outcome="/public/index.xhtml"/>
+        <ui:composition template="/WEB-INF/templates/masterLayout.xhtml">            
+
+            <ui:define name="content">
+                <p:button value="Regresar" outcome="/public/index.xhtml"/>
+                <h:outputStylesheet  library="css" name="registro.css"/>
+                <h:form class="form">
+
+                    <div class="ui-fluid">    
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank ui-noborder">
+                            <f:facet name="header">
+                                <span class="titulo">Registro de Rol</span>
+                            </f:facet>
+                            <p:outputLabel for="txtDescripcion" value="Descripción: "/>
+                            <p:inputText id="txtDescripcion" placeholder="Descripción:"  required="true" maxlength="30" pt:pattern="[a-zA-Z]+" requiredMessage="Ingrese una usuario!" />
+
+                            <p:outputLabel for="txtDetalle" value="Detalle: "/>
+                            <p:password id ="txtDetalle" placeholder="Detalle"/>
+
+                            <p:outputLabel for="txtEstado" value="Estado: "/>
+                            <p:selectOneMenu id="txtEstado"  >
+                                <f:selectItem itemLabel="Activo" itemValue="A"/>
+                                <f:selectItem itemLabel="Inactivo" itemValue="I"/>
+                            </p:selectOneMenu>
+                           
+                            <p:messages id="mensaje" />
+
+                            <f:facet name="footer">
+                                <p:commandButton class="btn-guardar" value="Guardar" />
+                            </f:facet>
+                        </p:panelGrid>
+                    </div>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+
+    </h:body>
+</html>
+

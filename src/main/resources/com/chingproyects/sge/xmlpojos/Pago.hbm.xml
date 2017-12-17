@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2017 23:17:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="com.chingproyects.sge.xmlpojos.Pago" optimistic-lock="version" schema="public" table="pago">
+    <id name="id" type="serializable">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.chingproyects.sge.xmlpojos.Matricula" fetch="select" name="matricula">
+      <column name="matricula_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.chingproyects.sge.xmlpojos.Tipovalor" fetch="select" name="tipovalor">
+      <column name="tipovalor_id" not-null="true"/>
+    </many-to-one>
+    <property name="valor" type="double">
+      <column name="valor" not-null="true" scale="0"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column name="descripcion"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="detallepagos" table="detallepago">
+      <key>
+        <column name="pago_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.Detallepago"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="detallepagos_1" table="detallepago">
+      <key>
+        <column name="pago_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.Detallepago"/>
+    </set>
+  </class>
+</hibernate-mapping>

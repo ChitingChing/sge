@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2017 23:17:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="com.chingproyects.sge.xmlpojos.Matricula" optimistic-lock="version" schema="public" table="matricula">
+    <id name="id" type="serializable">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.chingproyects.sge.xmlpojos.Alumno" fetch="select" name="alumno">
+      <column name="alumno_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.chingproyects.sge.xmlpojos.Categoria" fetch="select" name="categoria">
+      <column name="categoria_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.chingproyects.sge.xmlpojos.Curso" fetch="select" name="curso">
+      <column name="curso_id" not-null="true"/>
+    </many-to-one>
+    <property name="preciomatricula" type="double">
+      <column name="preciomatricula" not-null="true" scale="0"/>
+    </property>
+    <property name="preciomensualidad" type="double">
+      <column name="preciomensualidad" not-null="true" scale="0"/>
+    </property>
+    <property name="fechamatricula" type="date">
+      <column length="13" name="fechamatricula" not-null="true"/>
+    </property>
+    <property name="nmensualidades" type="int">
+      <column name="nmensualidades" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="pagos" table="pago">
+      <key>
+        <column name="matricula_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.Pago"/>
+    </set>
+  </class>
+</hibernate-mapping>

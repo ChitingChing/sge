@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"    
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/templates/masterLayout.xhtml">            
+            
+            <ui:define name="content">
+                <p:button value="Regresar" outcome="/public/index.xhtml"/>
+                <h:outputStylesheet  library="css" name="registro.css"/>
+                <h:form class="form">
+                    
+                    <div class="ui-fluid">    
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank ui-noborder">
+                            <f:facet name="header">
+                                <span class="titulo">Registro de Entidad</span>
+                            </f:facet>
+                            <p:outputLabel for="txtRuc" value="Ruc: "/>
+                            <p:inputText id="txtRuc" placeholder="Ruc" maxlength="13" pt:pattern="[0-9]{13}"  required="true" requiredMessage="Ingrese un ruc!" />
+                            
+                            <p:outputLabel for="txtEntidad" value="Entidad: "/>
+                            <p:inputText id="txtEntidad" placeholder="Entidad"  required="true" maxlength="50" requiredMessage="Ingrese una entidad!" />
+                                                                                   
+                            <p:outputLabel for="txtDireccion" value="Dirección: "/>
+                            <p:inputText id="txtDireccion" placeholder="Dirección" maxlength="100" />
+                            
+                            <p:outputLabel for="txtTelefono1" value="Teléfono 1: "/>
+                            <p:inputText id="txtTelefono1" placeholder="Teléfono 1" pt:pattern="[0-9]{7,10}" maxlength="10" />
+                            
+                            <p:outputLabel for="txtTelefono2" value="Teléfono 2: "/>
+                            <p:inputText id="txtTelefono2" placeholder="Teléfono 2" pt:pattern="[0-9]{7,10}" maxlength="10"/>
+                            
+                            <p:outputLabel for="txtTelefono3" value="Teléfono 3: "/>
+                            <p:inputText id="txtTelefono3" placeholder="Teléfono 3" pt:pattern="[0-9]{7,10}" maxlength="10" />
+                            
+                            <p:outputLabel for="txtCiudad" value="Ciudad: "/>
+                            <p:inputText id="txtCiudad" placeholder="Ciudad" pt:pattern="[a-zA-Z]+" maxlength="25" />                        
+                            <p:messages id="mensaje" />
+                                 
+                            <f:facet name="footer">
+                                <p:commandButton class="btn-guardar" value="Guardar" />
+                            </f:facet>
+                        </p:panelGrid>
+                    </div>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+
+    </h:body>
+</html>
+

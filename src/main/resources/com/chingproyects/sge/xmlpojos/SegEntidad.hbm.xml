@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2017 23:17:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="com.chingproyects.sge.xmlpojos.SegEntidad" optimistic-lock="version" schema="public" table="seg_entidad">
+    <id name="id" type="serializable">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="descripcion" type="string">
+      <column name="descripcion" not-null="true"/>
+    </property>
+    <property name="ruc" type="string">
+      <column length="13" name="ruc" not-null="true"/>
+    </property>
+    <property name="direccion" type="string">
+      <column name="direccion" not-null="true"/>
+    </property>
+    <property name="telefono1" type="string">
+      <column name="telefono1" not-null="true"/>
+    </property>
+    <property name="telefono2" type="string">
+      <column name="telefono2" not-null="true"/>
+    </property>
+    <property name="telefono3" type="string">
+      <column name="telefono3" not-null="true"/>
+    </property>
+    <property name="estado" type="char">
+      <column length="1" name="estado" not-null="true"/>
+    </property>
+    <property name="ciudad" type="string">
+      <column name="ciudad" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="cursos" table="curso">
+      <key>
+        <column name="entidad_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.Curso"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="segUsuarioentidads" table="seg_usuarioentidad">
+      <key>
+        <column name="entidad_id"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.SegUsuarioentidad"/>
+    </set>
+  </class>
+</hibernate-mapping>

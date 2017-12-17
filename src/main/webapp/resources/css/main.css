@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05-abr-2017, 13:24:19
+    Author     : chiti
+*/
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    font-family: sans-serif;
+    min-height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+    margin-bottom: -50px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+   margin-bottom: 50px;
+}
+.pie, .page-wrap:after {
+  /* .push must be the same height as footer */
+    height: 50px; 
+   
+}
+.pie {
+    width: 100%;
+   text-align: center;
+   border-top: #000 thin ;
+}
+.pie footer {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+
+
+
+

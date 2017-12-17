@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2017 23:17:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="com.chingproyects.sge.xmlpojos.Curso" optimistic-lock="version" schema="public" table="curso">
+    <id name="id" type="serializable">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.chingproyects.sge.xmlpojos.SegEntidad" fetch="select" name="segEntidad">
+      <column name="entidad_id" not-null="true"/>
+    </many-to-one>
+    <property name="descripcion" type="string">
+      <column name="descripcion" not-null="true"/>
+    </property>
+    <property name="fechainicio" type="date">
+      <column length="13" name="fechainicio" not-null="true"/>
+    </property>
+    <property name="fechafin" type="date">
+      <column length="13" name="fechafin" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="matriculas" table="matricula">
+      <key>
+        <column name="curso_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.Matricula"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2017 23:17:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="com.chingproyects.sge.xmlpojos.SegRol" optimistic-lock="version" schema="public" table="seg_rol">
+    <id name="id" type="serializable">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="descripcion" type="string">
+      <column name="descripcion" not-null="true"/>
+    </property>
+    <property name="estado" type="char">
+      <column length="1" name="estado" not-null="true"/>
+    </property>
+    <property name="detalle" type="string">
+      <column name="detalle" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="segPermisorols" table="seg_permisorol">
+      <key>
+        <column name="rol_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.SegPermisorol"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="segUsuarios" table="seg_usuario">
+      <key>
+        <column name="rol_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.chingproyects.sge.xmlpojos.SegUsuario"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2017 23:17:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="com.chingproyects.sge.xmlpojos.Profesor" optimistic-lock="version" schema="public" table="profesor">
+    <id name="id" type="serializable">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombres" type="string">
+      <column name="nombres" not-null="true"/>
+    </property>
+    <property name="apellidos" type="string">
+      <column name="apellidos" not-null="true"/>
+    </property>
+    <property name="cedula" type="string">
+      <column name="cedula" not-null="true"/>
+    </property>
+    <property name="direccion" type="string">
+      <column name="direccion" not-null="true"/>
+    </property>
+    <property name="telefono1" type="string">
+      <column name="telefono1" not-null="true"/>
+    </property>
+    <property name="telefono2" type="string">
+      <column name="telefono2" not-null="true"/>
+    </property>
+    <property name="sexo" type="char">
+      <column length="1" name="sexo" not-null="true"/>
+    </property>
+    <property name="fechanac" type="date">
+      <column length="13" name="fechanac" not-null="true"/>
+    </property>
+    <property name="estado" type="char">
+      <column length="1" name="estado" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
